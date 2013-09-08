@@ -1,19 +1,38 @@
 package name.peysal
 
+import spock.lang.Specification
+
 /**
  * @author peysal
  * Groovy introduction: 1) list 2) operator overloading 3) method pointer
  */
-def list = []
-assert list.isEmpty()
-list.add("ayam")
-list.add "babun"    //optional parentheses, except if it doesnt have any argument
-list << "cicak"    //operator overloading
-assert list.size == 3
-println list
+class Introduction2 extends Specification {
 
-def tambah = list.&add    //method pointer in action
-tambah "dugong"
-println list
+    def "Many way adding thing into list" () {
+        def list = []
+        expect:
+            list.isEmpty()
 
-assert list.size == 4
+        when: "Use add method with parentheses"
+            list.add("ayam")
+        then:
+            list.size() == 1
+
+        when: "User add method"
+            list.add "babun"
+        then:
+            list.size() == 2
+
+        when: "User use the overloading operator <<"
+            list << "cicak"
+        then:
+            list.size() == 3
+
+        when: "method pointer in action for add"
+            def tambah = list.&add
+            tambah "dugong"
+        then:
+            list.size() == 4
+    }
+}
+
