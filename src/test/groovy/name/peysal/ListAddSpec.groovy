@@ -6,7 +6,7 @@ import spock.lang.Specification
  * @author peysal
  * Groovy introduction: 1) list 2) operator overloading 3) method pointer
  */
-class Introduction2 extends Specification {
+class ListAddSpec extends Specification {
 
     def "Many way adding thing into list" () {
         def list = []
