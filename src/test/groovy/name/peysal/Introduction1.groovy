@@ -16,6 +16,7 @@ class Person {
 
 class PersonSpec extends Specification {
     Person person
+    def  candidate1, candidate2
 
     def "Accessing the value" () {
         person = new Person()
@@ -30,6 +31,29 @@ class PersonSpec extends Specification {
             person = new Person(name:"gohan")
         then:
             person.name == "gohan"
+    }
+
+    def "Safe derefencing" () {
+        candidate1 = new Person(name:"bill", spouse: new Person(name:"lengloy"))
+        candidate1.spouse.spouse = candidate1
+        candidate2
+
+        expect:
+            candidate1.spouse.spouse != null
+
+        when:
+            candidate2 = new Person(name:"bull")
+        then:
+            candidate2.spouse?.name == null
+    }
+
+    def "auto boxing in action" () {
+        candidate1 = new Person(age: 32)
+        candidate2 = new Person(age: 30.5)
+
+        expect:
+            candidate1.age.class == Integer.class
+            candidate2.age.class == BigDecimal.class
     }
 }
 
