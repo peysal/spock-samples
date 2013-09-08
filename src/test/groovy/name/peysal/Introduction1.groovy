@@ -1,4 +1,7 @@
 package name.peysal
+
+import spock.lang.Specification
+
 /**
  * @author peysal
  * Groovy introduction: 1) no accessors method 2) gString 3) accessing object
@@ -11,16 +14,24 @@ class Person {
     def spouse
 }
 
-//no accessors method
+class PersonSpec extends Specification {
+    Person person
 
-Person person = new Person()
-person.name = "goku"
-println "helloo ${person.name}"
-assert person.name == "goku"
-assert person["name"] == "goku"
+    def "Accessing the value" () {
+        person = new Person()
 
-person = new Person(name:"gohan")    //passing constructor value
-assert person.name == "gohan"
-println "helloo ${person.name}"
+        when: "assign value"
+            person.name = "goku"
+        then:
+            person.name == "goku"
+            person['name'] == "goku"
+
+        when:
+            person = new Person(name:"gohan")
+        then:
+            person.name == "gohan"
+    }
+}
+
 
 
