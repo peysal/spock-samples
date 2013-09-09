@@ -8,11 +8,6 @@ import spock.lang.Specification
  * 4) equality operator not referring to memory address extra: can change the value to make wrong assertion just to
  * show groovy trace
  */
-class Person {
-    String name
-    def age
-    def spouse
-}
 
 class PersonSpec extends Specification {
     Person person
@@ -22,15 +17,15 @@ class PersonSpec extends Specification {
         person = new Person()
 
         when: "assign value"
-            person.name = "goku"
+        person.name = "goku"
         then:
-            person.name == "goku"
-            person['name'] == "goku"
+        person.name == "goku"
+        person['name'] == "goku"
 
         when:
-            person = new Person(name:"gohan")
+        person = new Person(name:"gohan")
         then:
-            person.name == "gohan"
+        person.name == "gohan"
     }
 
     def "Safe derefencing" () {
@@ -39,12 +34,12 @@ class PersonSpec extends Specification {
         candidate2
 
         expect:
-            candidate1.spouse.spouse != null
+        candidate1.spouse.spouse != null
 
         when:
-            candidate2 = new Person(name:"bull")
+        candidate2 = new Person(name:"bull")
         then:
-            candidate2.spouse?.name == null
+        candidate2.spouse?.name == null
     }
 
     def "auto boxing in action" () {
@@ -52,8 +47,8 @@ class PersonSpec extends Specification {
         candidate2 = new Person(age: 30.5)
 
         expect:
-            candidate1.age.class == Integer.class
-            candidate2.age.class == BigDecimal.class
+        candidate1.age.class == Integer.class
+        candidate2.age.class == BigDecimal.class
     }
 }
 
