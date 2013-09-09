@@ -7,7 +7,7 @@ Groovy is a programming language which is dynamic and quite easy to learn for ne
 have structured and easy to read code sample explaining the functionality of Groovy. Instead of writing Groovy script,
 I decided to start this mini project using Spock as a way expressing Groovy functionality.
 
-What you can expect from this mini project:<br>
+What benefit you can reap from this mini project:<br>
 *	Basic knowledge using groovy. 
 *	Basic knowledge using Spock. 
 *	Accidently learning BDD.
