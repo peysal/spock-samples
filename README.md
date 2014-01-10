@@ -24,7 +24,7 @@ I prefer we adopt the style below as a standard in teaching Groovy to the newcom
 Currently we have 2 package name:
 
 1. name.peysal -> all the code should be commit here. 
-2. org.mhshams -> have more advance example on Spock. Just for reference. Later will be remove 
+2. org.mhshams -> have more advance example on Spock. Just for reference. Later will be remove. Tq Mohd :)
 
 
 
