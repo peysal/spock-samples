@@ -1,11 +1,13 @@
 package name.peysal
 
+import spock.lang.Ignore
 import spock.lang.Specification
 
 /**
  * Expando spec.
  * @author peysal
  */
+@Ignore
 class ExpandoSpec extends Specification {
 
     def originalMethod = Utils.metaClass.static.printLogMessage
